@@ -3,12 +3,22 @@ package com.galih2.galih2.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "bookcategory")
+@Table
 public class BookCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     private String name;
+    @OneToMany(mappedBy = "bookcategory", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+//    public BookCategory() {
+//    }
+
+//    public BookCategory(int id, String name) {
+//        this.id = id;
+//        this.name = name;
+//    }
 
     public int getId() {
         return id;
